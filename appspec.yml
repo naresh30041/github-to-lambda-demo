@@ -6,7 +6,7 @@ Resources:
         Name: "github-to-lambda-demo"
         Alias: "github-to-lambda-a"
         CurrentVersion: "LATEST"
-        TargetVersion: "LATEST"
+        
 Hooks:
   - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
   - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
