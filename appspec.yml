@@ -8,5 +8,11 @@ Resources:
         CurrentVersion: "$LATEST"
         TargetVersion: "$LATEST"
 Hooks:
-  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
-  - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
+  - BeforeInstall:
+      - location: scripts/before-install.sh
+        timeout: 300
+        runas: root
+  - AfterInstall:
+      - location: scripts/after-install.sh
+        timeout: 300
+        runas: root
