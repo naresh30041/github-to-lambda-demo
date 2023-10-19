@@ -8,12 +8,5 @@ Resources:
         CurrentVersion: "$LATEST"
         TargetVersion: "$LATEST"
 Hooks:
-  - BeforeInstall:
-      - location: scripts/before-install.sh
-        timeout: 300
-        runas: root
-      - location: lambda_function.py
-  - AfterInstall:
-      - location: scripts/after-install.sh
-        timeout: 300
-        runas: root
+  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
+  - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
